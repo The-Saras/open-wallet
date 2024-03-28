@@ -1,0 +1,37 @@
+.navbar{
+    width: 100%;
+    height: 100%;
+    background-color: #4099E1;
+    position: absolute;
+}
+
+.navbar-title{
+    width: fit-content;
+    height: fit-content;
+    text-align: left;
+    left: 6%;
+    position: absolute;
+    top: 25%;
+    color: white;
+    text-shadow: 7px 7px 5px  black;
+    
+    
+}
+
+.navbar ul{
+    position: absolute;
+    left: 82%;
+    display: flex;
+    top: 30%;
+}
+
+.navbar ul li{
+    position: relative;
+    margin: 0 15px;
+    list-style: none;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    text-shadow: 7px 7px 5px black;
+}
