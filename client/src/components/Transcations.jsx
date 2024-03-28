@@ -3,6 +3,8 @@ import NavBar from "./NavBar";
 import '../css files/transactions.css'
 
 const Transcations_Page = () => {
+
+    const [temp,setTemp] = useState([]);
     return(
         <>
             <div className="trans-navbar">
