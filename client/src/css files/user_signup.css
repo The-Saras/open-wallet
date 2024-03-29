@@ -28,7 +28,7 @@
     display: block;
     position: relative;
     left: 30%;
-    top: 10%;
+    top: 5%;
     width: 42%;
     height: 7%;
     margin: 15px 2px;
@@ -50,20 +50,24 @@
     font-weight: bold;
     
 }
-
 .user-signup-outer-div label:first-of-type{
     left: 12%;
-    top: 35%;
-    
+    top: 28%;
 }
+
 .user-signup-outer-div label:nth-of-type(2){
     left: 12%;
-    top: 49%;
+    top: 43%;
+    
+}
+.user-signup-outer-div label:nth-of-type(3){
+    left: 12%;
+    top: 56%;
 
 }
 .user-signup-outer-div label:last-of-type{
     left: 1%;
-    top: 62%;
+    top: 70%;
 
 }
 
@@ -72,7 +76,7 @@
     width: 20%;
     height: 10%;
     position: relative;
-    top: 15%;
+    top: 8%;
     background-color: white;
     color: black;
     border: 1.4px black inset;
