@@ -19,7 +19,13 @@ const User_Signup = () => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({ name,email , password: pass })
-            });
+            }).then(response => response.json())
+                .then(result => {
+                    if(result.success == true){
+                        const token = result.token
+                        localStorage.setItem('jsonsettoken',token)
+                    }
+                })
             const data = await response.json();
             console.log("User Created Sucessfully...", data);
 
