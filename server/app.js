@@ -6,8 +6,10 @@ app.use(express.json());
 
 app.use(cors());
 const userRoutes = require("./routes/userAuths");
+const accountRouter = require("./routes/accountRoutes");
 
 app.use("/user", userRoutes);
+app.use("/account", accountRouter);
 const cnmg = require("./db");
 cnmg();
 
