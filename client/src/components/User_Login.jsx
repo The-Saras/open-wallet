@@ -29,10 +29,10 @@ const User_Login = () => {
                 console.error("Unable To Login...",data.error)
             }else{
                 console.log("Logged in successfully....", data);
+                const token = data.token
+                localStorage.setItem('jsonwebtoken',token)
                 setIsSignedUp(true)
-                navigate('/transactions');
-
-
+                navigate('/');
 
             }
 

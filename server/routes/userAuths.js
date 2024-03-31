@@ -52,7 +52,7 @@ router.post("/login",async(req,res)=>{
 
         }
         const authToken = jsonwebtoken.sign({id:userExits._id},SECRET);
-        res.json({authToken})
+        res.json({token:authToken})
 
     }
     catch(error){
