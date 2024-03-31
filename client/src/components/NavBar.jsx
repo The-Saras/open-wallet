@@ -7,6 +7,7 @@ const NavBar = ({isSigndUp, setIsSignedUp}) => {
 
     const navigate = useNavigate()
     const [user, setUser] = useState()
+    const [isDropDown,setIsDropDown] = useState(false)
     const fetchUser = async()=>{
         try{
             const reesponse = await fetch('http://localhost:3000/user/getuser',{
@@ -25,14 +26,24 @@ const NavBar = ({isSigndUp, setIsSignedUp}) => {
         }
     }
     useEffect(()=>{fetchUser() },[])
+
+
     return(
         <>
             {user? 
                 <div className="navbar">
                     <h2 className="navbar-title">UPI CLONE</h2>
-                    <ul>
-                        <li >{user}</li>
+                    <ul style={{position: 'absolute', left: 90 + '%', width: 5 + '%', height: 30 + '%'}} onMouseLeave={() => {setIsDropDown(false)}}>
+                        <li className="navbar-username" style={{position: 'relative', left: -15 + '%'}}  onMouseEnter={() => {setIsDropDown(true)}} >{user}</li>
                     </ul>
+                    {isDropDown && (
+                            <div className="dropdown-content" onMouseEnter={() => {setIsDropDown(true)}} onMouseLeave={() => {setIsDropDown(false)}}>
+                                <button onClick={() => {
+                                    localStorage.clear();
+                                    location.reload();
+                                }}>Logout</button>
+                            </div>
+                        )}
                 </div>
                 : 
                 <div className="navbar">
