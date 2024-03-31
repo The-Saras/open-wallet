@@ -58,5 +58,17 @@ router.post("/login",async(req,res)=>{
     catch(error){
         console.log(error);
     }
-})
+});
+
+router.get("/getuser",async(req,res)=>{
+    try{
+        const token = req.header("auth-token");
+        const data = jsonwebtoken.verify(token,SECRET);
+        const user = await User.findById(data.id).select("-password");
+        res.json(user);
+    }
+    catch(err){
+        console.log(err);
+    }
+});
 module.exports = router;
