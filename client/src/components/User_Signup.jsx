@@ -3,13 +3,17 @@ import NavBar from "./NavBar";
 import "../css files/user_signup.css";
 import { useState } from "react";
 import { MdPassword } from "react-icons/md";
+import CustomAleart from "./Custom_Aleart";
 const User_Signup = () => {
 
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [conform_pass, setConformPass] = useState('');
+    const [alertmsg,setAlertMsg] = useState('')
 
+
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
@@ -28,6 +32,8 @@ const User_Signup = () => {
                     const token = data.token
                     localStorage.setItem('jsonwebtoken',token)
                     console.log("User Created Sucessfully...", data);
+                    setAlertMsg("User Created Succesfully");
+                    
                 }
                 
                 
@@ -41,6 +47,10 @@ const User_Signup = () => {
         <>
             <div className="user-signup-navbar">
                 <NavBar />
+            </div>
+            <div>
+                {alertmsg && <CustomAleart msg={"User Created Succesfully"} />}
+
             </div>
             <div className="user-signup-outer-div">
                 
