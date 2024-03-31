@@ -6,6 +6,7 @@ const jsonwebtoken = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const SECRET = "someranw582er0948doimje509345brigh"
 const mongoose = require("mongoose");
+const { authenticateJwt } = require("../middleware/authuser");
 router.use(express.json());
 
 router.post("/register",async(req,res)=>{
@@ -60,11 +61,11 @@ router.post("/login",async(req,res)=>{
     }
 });
 
-router.get("/getuser",async(req,res)=>{
+router.get("/getuser",authenticateJwt,async(req,res)=>{
     try{
-        const token = req.header("auth-token");
-        const data = jsonwebtoken.verify(token,SECRET);
-        const user = await User.findById(data.id).select("-password");
+        
+        const id = req.id;
+        const user = await User.findById(id).select("-password");
         res.json(user);
     }
     catch(err){
