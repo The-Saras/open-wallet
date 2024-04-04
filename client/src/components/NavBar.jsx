@@ -51,7 +51,7 @@ const NavBar = ({isSigndUp, setIsSignedUp}) => {
                     <ul>
                         <li onClick={() => {navigate('/')}}>Home</li>
                         <li onClick={() => {navigate('#')}}>Send Money</li>
-                        <li onClick={() => {navigate('#')}}>Account Details</li>
+                        <li onClick={() => {navigate('/account_details')}}>Account Details</li>
                     </ul>
                     <ul>
                         <span></span>
