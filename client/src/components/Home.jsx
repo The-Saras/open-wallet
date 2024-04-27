@@ -24,11 +24,11 @@ const Home = () => {
                     <p>Transcations</p>
                 </div>
                 <div className="home-send-money-section">
-                    <button className="send-money-btn"><IoSend size={30}/></button>
+                    <button className="send-money-btn" onClick={() => {navigate('/send_money')}}><IoSend size={30}/></button>
                     <p>Send Money</p>
                 </div>
                 <div className="home-acc-details-section">
-                    <button className="account-btn"><MdAccountCircle size={30} /></button>
+                    <button className="account-btn" onClick={() => {navigate('/account_details')}}><MdAccountCircle size={30} /></button>
                     <p>Account Detail</p>
                 </div>
 

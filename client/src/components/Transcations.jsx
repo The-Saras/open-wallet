@@ -1,10 +1,11 @@
 import React from "react";
 import NavBar from "./NavBar";
+import Total_Balance from "./Total_Balance";
 import '../css files/transactions.css'
 import { useState } from "react";
 import { useEffect } from "react";
 
-const Transcations_Page = () => {
+const Transcations_Page = ({bal}) => {
 
     
     const [temp,setTemp] = useState([]);
@@ -35,6 +36,9 @@ const Transcations_Page = () => {
         <>
             <div className="trans-navbar">
                 <NavBar />
+            </div>
+            <div className="trans-total-bal">
+                <Total_Balance bal={bal}/>
             </div>
             <div className="trans-main-section">
                 <ul className="trans-titles">
