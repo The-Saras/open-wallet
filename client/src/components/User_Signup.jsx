@@ -13,8 +13,8 @@ const User_Signup = () => {
     const [pass, setPass] = useState('');
     const [conform_pass, setConformPass] = useState('');
     const [alertmsg,setAlertMsg] = useState('');
-    const [mobile,setMobile] = useState('');
-    const [pin,setPin] = useState('');
+    
+    
 
 
     
@@ -26,7 +26,7 @@ const User_Signup = () => {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ name,email , password: pass })
+                body: JSON.stringify({ name,email , password: pass, mobilenumber:phone,pin:pin })
             })
                 
                 const data = await response.json();

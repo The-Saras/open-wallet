@@ -13,6 +13,26 @@ const Send_Money = () => {
     const [haveVal,setHaveVal] = useState(false)
     const [btnClicked, setBtnClicked] = useState(false)
 
+    const handleSubmit =async(e)=>{
+        e.preventDefault();
+        try {
+            const response = await fetch("http://localhost:3000/account/transfer",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "auth-token":localStorage.getItem('jsonwebtoken')
+                },
+                body:JSON.stringify({amount:amt,to:ph,pin:pin})
+            })
+            const data = await response.json();
+            if(data){
+                alert("Amount Sent....");
+            }
+        } catch (error) {
+            alert("Error: ",error);
+        }
+    }
+
     const filedEmpty = (ph,msg) => {
         if(ph != "" && msg != "" && amt != "")
         {
@@ -47,7 +67,7 @@ const Send_Money = () => {
                 <input type="number" name="amt" value={amt} placeholder="Amount" onChange={(e) => {setAmt(e.target.value)}}/>
                 <input type="password" name="pin" value={pin} placeholder="Enter Your Pin" onChange={(e) => {setPin(e.target.value)}}/>
                 <input type="text" name="msg"  value={msg} placeholder="Message If Any"  onChange={(e) => {setMsg(e.target.value)}}/>
-                <button className="send-money-btn" onClick={() => {filedEmpty(ph,msg);setBtnClicked(true)}}>Send</button>
+                <button className="send-money-btn" onClick={handleSubmit}>Send</button>
             </div>
 
         </>

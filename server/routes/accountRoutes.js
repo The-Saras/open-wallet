@@ -70,4 +70,15 @@ router.post("/transfer", authenticateJwt, async (req, res) => {
     }
 });
 
+router.get("/transactions", authenticateJwt, async (req, res) => {
+    const transactions = await Transaction.find({
+        $or: [
+            { sender: req.id },
+            { receiver: req.id }
+        ]
+    }).populate('sender receiver', 'name email').sort({ createdAt: -1 });
+
+    res.json(transactions);
+});
+
 module.exports = router;
