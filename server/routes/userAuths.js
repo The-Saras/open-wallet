@@ -11,7 +11,7 @@ router.use(express.json());
 
 router.post("/register",async(req,res)=>{
     try{
-        const {name,email,password} = req.body;
+        const {name,email,password,mobilenumber,pin} = req.body;
         const salt = await bcrypt.genSalt(10);
         const secPass = await bcrypt.hash(password,salt);
 
@@ -22,7 +22,9 @@ router.post("/register",async(req,res)=>{
         userExits = await User.create({
             name:name,
             email:email,
-            password:secPass
+            password:secPass,
+            mobilenumber:mobilenumber,
+            pin:pin
         });
         const userid = userExits._id;
 

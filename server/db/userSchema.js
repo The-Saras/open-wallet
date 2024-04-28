@@ -19,7 +19,17 @@ const userSchema = new mongoose.Schema({
     max: 1024,
     min: 6
   },
-  
+  mobilenumber:{
+    type:Number,
+    required:true
+  },
+  pin:{
+    type:Number,
+    required:true,
+   
+  }
+
+
 });
 
 const User = mongoose.model("User", userSchema);

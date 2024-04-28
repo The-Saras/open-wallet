@@ -10,7 +10,9 @@ const User_Signup = () => {
     const [email,setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [conform_pass, setConformPass] = useState('');
-    const [alertmsg,setAlertMsg] = useState('')
+    const [alertmsg,setAlertMsg] = useState('');
+    const [mobile,setMobile] = useState('');
+    const [pin,setPin] = useState('');
 
 
     
@@ -67,6 +69,9 @@ const User_Signup = () => {
 
                 <label htmlFor="user-conform-pass">Conform Password:</label>
                 <input type="password" id="user-conform-pass" value={conform_pass} onChange={(e) => {setConformPass(e.target.value)}}/>
+
+                
+
 
                 <button className="user-signup-btn" onClick={handleSubmit}>Create User</button>
             </div>
