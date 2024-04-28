@@ -9,6 +9,7 @@ const Send_Money = () => {
     const [ph,setPh] = useState("")
     const [msg,setMsg] = useState("")
     const [amt, setAmt] = useState("")
+    const [pin, setPin] = useState("")
     const [haveVal,setHaveVal] = useState(false)
     const [btnClicked, setBtnClicked] = useState(false)
 
@@ -42,9 +43,10 @@ const Send_Money = () => {
             <div className="send-money-main">
                 <h2 className="send-money-title">SEND MONEY</h2>
                 <p>Send To:</p>
-                <input type="tel" name="phone_no" placeholder="Recivers Phone No." onChange={(e) => {setPh(e.target.value)}}/>
-                <input type="number" name="amt" placeholder="Amount" onChange={(e) => {setAmt(e.target.value)}}/>
-                <input type="text" name="msg" placeholder="Message If Any"  onChange={(e) => {setMsg(e.target.value)}}/>
+                <input type="tel" name="phone_no" value={ph} placeholder="Recivers Phone No." onChange={(e) => {setPh(e.target.value)}}/>
+                <input type="number" name="amt" value={amt} placeholder="Amount" onChange={(e) => {setAmt(e.target.value)}}/>
+                <input type="password" name="pin" value={pin} placeholder="Enter Your Pin" onChange={(e) => {setPin(e.target.value)}}/>
+                <input type="text" name="msg"  value={msg} placeholder="Message If Any"  onChange={(e) => {setMsg(e.target.value)}}/>
                 <button className="send-money-btn" onClick={() => {filedEmpty(ph,msg);setBtnClicked(true)}}>Send</button>
             </div>
 
