@@ -10,11 +10,11 @@
 
 .user-signup-outer-div{
     width: 35%;
-    height: 45%;
+    height: 55%;
     position: absolute;
     background-color: white;
     left: 32.5%;
-    top: 35%;
+    top: 30%;
     border-radius: 20px;
     border: 2px black solid;
     box-shadow: 4.4px 8.8px 8.8px hsl(0deg 0% 0% / 0.36);
@@ -30,7 +30,7 @@
     left: 30%;
     top: 5%;
     width: 42%;
-    height: 7%;
+    height: 5%;
     margin: 15px 2px;
     color: black;
     background-color: white;
@@ -52,22 +52,32 @@
 }
 .user-signup-outer-div label:first-of-type{
     left: 12%;
-    top: 28%;
+    top: 24%;
 }
 
 .user-signup-outer-div label:nth-of-type(2){
     left: 12%;
-    top: 43%;
+    top: 34%;
     
 }
 .user-signup-outer-div label:nth-of-type(3){
     left: 12%;
-    top: 56%;
+    top: 44%;
+
+}
+.user-signup-outer-div label:nth-of-type(4){
+    left: 10%;
+    top: 54%;
+
+}
+.user-signup-outer-div label:nth-of-type(5){
+    left: 12%;
+    top: 64%;
 
 }
 .user-signup-outer-div label:last-of-type{
     left: 1%;
-    top: 70%;
+    top: 74%;
 
 }
 

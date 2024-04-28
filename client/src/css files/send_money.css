@@ -64,6 +64,14 @@
     height: 5%;
     
 }
+.send-money-main input:nth-of-type(4)
+{
+    top: 74%;
+    left: 31%;
+    width: 35%;
+    height: 5%;
+    
+}
 
 .send-money-main input::placeholder
 {
@@ -74,7 +82,7 @@
     position: relative;
     width: 10%;
     height: 7%;
-    top: 56%;
+    top: 66%;
     left: -2%;
     background-color: white;
     color: black;

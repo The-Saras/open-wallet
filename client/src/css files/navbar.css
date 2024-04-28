@@ -28,6 +28,7 @@
     top: 25%;
 }
 
+
 .navbar ul:first-of-type li{
     position: relative;
     margin: 0 15px;
@@ -38,11 +39,26 @@
     color: white;
 }
 
+/* .navbar ul:first-of-type li:nth-of-type(2)
+{
+    left: -700%;
+    /* position: absolute; */
+/* } */
+/* .navbar ul:first-of-type li:nth-of-type(3)
+{
+    left: -1000%;
+}
+.navbar ul:first-of-type li:nth-of-type(4)
+{
+    left: -800%;
+} */ */
+ 
 .navbar:first-of-type ul .navbar-username{
     color: white;
     font-weight: bold;
 
 }
+
 
 /* .navbar:first-of-type ul .navbar-username:hover{
     z-index: 1;

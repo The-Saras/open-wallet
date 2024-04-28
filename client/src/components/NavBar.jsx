@@ -35,6 +35,9 @@ const NavBar = ({isSigndUp, setIsSignedUp}) => {
                     <h2 className="navbar-title">UPI CLONE</h2>
                     <ul style={{position: 'absolute', left: 90 + '%', width: 5 + '%', height: 30 + '%'}} onMouseLeave={() => {setIsDropDown(false)}}>
                         <li className="navbar-username" style={{position: 'relative', left: -15 + '%'}}  onMouseEnter={() => {setIsDropDown(true)}} >{user}</li>
+                        {/* <li style={{position: 'relative', left: -400 + '%'}} onClick={() => {navigate('/')}}>Home</li>
+                        <li onClick={() => {navigate('/send_money')}}>Send Money</li>
+                        <li onClick={() => {navigate('/account_details')}}>Account Details</li> */}
                     </ul>
                     {isDropDown && (
                             <div className="dropdown-content" onMouseEnter={() => {setIsDropDown(true)}} onMouseLeave={() => {setIsDropDown(false)}}>
