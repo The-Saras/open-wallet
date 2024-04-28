@@ -8,6 +8,8 @@ const User_Signup = () => {
 
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
+    const [phone,setPhone] = useState('');
+    const [pin,setPin] = useState('');
     const [pass, setPass] = useState('');
     const [conform_pass, setConformPass] = useState('');
     const [alertmsg,setAlertMsg] = useState('')
@@ -61,6 +63,12 @@ const User_Signup = () => {
 
                 <label htmlFor="user-email">Email:</label>
                 <input type="text" id="user-email" value={email} onChange={(e) => {setEmail(e.target.value)}}/>
+
+                <label htmlFor="user-phone-no">Phone No:</label>
+                <input type="text" id="user-phone-no" value={phone} onChange={(e) => {setPhone(e.target.value)}}/>
+
+                <label htmlFor="user-pin">Security Pin:</label>
+                <input type="text" id="user-pin" value={pin} onChange={(e) => {setPin(e.target.value)}}/>
 
                 <label htmlFor="user-pass">Password:</label>
                 <input type="password" id="user-pass" value={pass} onChange={(e) => {setPass(e.target.value)}}/>
