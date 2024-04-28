@@ -10,10 +10,10 @@ const Transcations_Page = ({bal}) => {
     
     const [temp,setTemp] = useState([]);
     const [color,setColor] = useState('');
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json()).then(json => setTemp(json))
+    // useEffect(() => {
+    //     fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json()).then(json => setTemp(json))
         
-    },[])
+    // },[])
     console.log(temp);
 
     const trans_checker = (Deposit) => {
@@ -25,12 +25,12 @@ const Transcations_Page = ({bal}) => {
         }
     }
 
-    useEffect(() => {
-        temp.forEach(trans => {
-            trans_checker(trans.phone)
-        })
+    // useEffect(() => {
+    //     temp.forEach(trans => {
+    //         trans_checker(trans.phone)
+    //     })
 
-    },[temp])
+    // },[temp])
 
     return(
         <>
@@ -43,13 +43,11 @@ const Transcations_Page = ({bal}) => {
             <div className="trans-main-section">
                 <ul className="trans-titles">
                     <li>Date</li>
-                    <li>Transaction Details</li>
-                    <li>Withdrawals</li>
-                    <li>Deposits</li>
-                    <li>Balance</li>
+                    <li>Name</li>
+                    <li>Amount</li>
                 </ul>
                 <ul>
-                    {temp.map(trans => {
+                    {/* {temp.map(trans => {
                     return(
                             <span key={trans.id}>
                                 <li>{trans.name}</li>
@@ -57,10 +55,28 @@ const Transcations_Page = ({bal}) => {
                                 <li style={{color: color}}>{trans.id}</li>
                                 <li style={{color: color}}>{trans.phone}</li>
                                 <li>{trans.username}</li>
-                            </span>
+                            </span> 
 
-)
-                    })}
+                        )
+                    })} */}
+                    <span>
+
+                    <li>28/4/24</li>
+                    <li>Tom</li>
+                    <li style={{color : "#3FFF00" }}>100$</li>
+                    </span>
+                    <span>
+
+                    <li>27/4/24</li>
+                    <li>Jack</li>
+                    <li style={{color : "red" }}>10$</li>
+                    </span>
+                    <span>
+
+                    <li>2/4/24</li>
+                    <li>Bill</li>
+                    <li style={{color : "#3FFF00" }}>1000$</li>
+                    </span>
                 </ul>
             </div>
         </>
