@@ -50,7 +50,7 @@ const NavBar = ({isSigndUp, setIsSignedUp}) => {
                     <h2 className="navbar-title">UPI CLONE</h2>
                     <ul>
                         <li onClick={() => {navigate('/')}}>Home</li>
-                        <li onClick={() => {navigate('#')}}>Send Money</li>
+                        <li onClick={() => {navigate('/send_money')}}>Send Money</li>
                         <li onClick={() => {navigate('/account_details')}}>Account Details</li>
                     </ul>
                     <ul>
