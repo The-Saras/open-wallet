@@ -3,7 +3,8 @@ import "../css files/navbar.css"
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-const NavBar = ({isSigndUp, setIsSignedUp}) => {
+import CustomAleart from "./Custom_Aleart";
+const NavBar = ({isClicked, setIsClicked}) => {
 
     const navigate = useNavigate()
     const [user, setUser] = useState()
@@ -52,12 +53,14 @@ const NavBar = ({isSigndUp, setIsSignedUp}) => {
                 </div>
                 : 
                 <div className="navbar">
+                    
+
                     <h2 className="navbar-title">UPI CLONE</h2>
                     <ul>
-                        <li onClick={() => {navigate('/')}}>Home</li>
-                        <li onClick={() => {navigate('/send_money')}}>Send Money</li>
-                        <li onClick={() => {navigate('/account_details')}}>Account Details</li>
-                        <li onClick={() => {navigate('/transactions')}}>Transactions</li>
+                        <li onClick={() => setIsClicked(true)}>Home</li>
+                        <li onClick={() => setIsClicked(true)}>Send Money</li>
+                        <li onClick={() => setIsClicked(true)}>Account Details</li>
+                        <li onClick={() => setIsClicked(true)}>Transactions</li>
                     </ul>
                     <ul>
                         <span></span>
@@ -65,6 +68,9 @@ const NavBar = ({isSigndUp, setIsSignedUp}) => {
                         <span></span>
                         <li onClick={() => {navigate('/user_signup')}}>SignUp</li>
                     </ul>
+                    <span>
+
+                    </span>
                 </div>
             }
         </>
