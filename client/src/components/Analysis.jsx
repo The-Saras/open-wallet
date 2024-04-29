@@ -87,12 +87,12 @@ const Analysis = () => {
         </div>
         <div className="analysis-main-section">
 
-            <div className="chart-container" style={{position: "absolute"}}>
                 <h2>Payments by Category</h2>
+            <div className="chart-container" style={{position: "absolute"}}>
                 {loading ? (
                     <p>Loading...</p>
                     ) : (
-                        <canvas  ref={chartRef} width="900" height="900"></canvas>
+                        <canvas  ref={chartRef} ></canvas>
                         )}
             </div>
         </div>
