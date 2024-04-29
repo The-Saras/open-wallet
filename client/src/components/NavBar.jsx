@@ -33,7 +33,7 @@ const NavBar = ({isClicked, setIsClicked}) => {
         <>
             {user? 
                 <div className="navbar">
-                    <h2 className="navbar-title">UPI CLONE</h2>
+                    <h2 className="navbar-title">OPEN WALLET</h2>
                     <ul style={{position: 'absolute', left: 90 + '%', width: 5 + '%', height: 30 + '%'}} onMouseLeave={() => {setIsDropDown(false)}}>
                         <li className="navbar-username" style={{position: 'relative', left: -15 + '%'}}  onMouseEnter={() => {setIsDropDown(true)}} >{user}</li>
                         <li style={{position: 'absolute', left: -770 + '%', width: 100 + "%"}} onClick={() => {navigate('/')}}>Home</li>
@@ -55,7 +55,7 @@ const NavBar = ({isClicked, setIsClicked}) => {
                 <div className="navbar">
                     
 
-                    <h2 className="navbar-title">UPI CLONE</h2>
+                    <h2 className="navbar-title">OPEN WALLET</h2>
                     <ul>
                         <li onClick={() => setIsClicked(true)}>Home</li>
                         <li onClick={() => setIsClicked(true)}>Send Money</li>
