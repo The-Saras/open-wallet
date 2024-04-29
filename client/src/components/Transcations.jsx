@@ -9,7 +9,6 @@ const Transcations_Page = ({bal}) => {
 
     
     const [user,setUser] = useState([]);
-    const [color,setColor] = useState("");
     const [currentUserId, setCurrentUserId] = useState("")
     
     const fetchUser = async () => {

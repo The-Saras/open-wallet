@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Chart from 'chart.js/auto';
-
+import "../css files/analysis.css";
+import NavBar from './NavBar';
 const Analysis = () => {
-    const [paymentData, setPaymentData] = useState();
-    const [chartRendered, setChartRendered] = useState(false);
+    const [paymentData, setPaymentData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const chartRef = useRef(null);
 
     const fetchTransactions = async () => {
         try {
@@ -15,27 +17,35 @@ const Analysis = () => {
             });
             const data = await response.json();
             setPaymentData(data);
+            setLoading(false); // Set loading to false after data is fetched
         } catch (error) {
-            console.log(error);
+            console.error('Error fetching transaction data:', error);
+            setLoading(false); // Set loading to false on error
         }
     };
 
     useEffect(() => {
         fetchTransactions();
-        if (paymentData && !chartRendered) {
-            renderChart();
-            setChartRendered(true);
-        }
-    }, [paymentData, chartRendered]);
+    }, []); // Fetch transactions only on component mount
 
-    
+    useEffect(() => {
+        if (paymentData) {
+            renderChart();
+        }
+    }, [paymentData]);
 
     const renderChart = () => {
         const categories = ['food', 'travel', 'clothes', 'medicines'];
         const categoryTotals = calculateCategoryTotals(paymentData, categories);
 
-        const ctx = document.getElementById('paymentChart');
-        new Chart(ctx, {
+        const ctx = chartRef.current.getContext('2d');
+
+        // Cleanup previous chart instance if it exists
+        if (chartRef.current.chartInstance) {
+            chartRef.current.chartInstance.destroy();
+        }
+
+        chartRef.current.chartInstance = new Chart(ctx, {
             type: 'pie',
             data: {
                 labels: categories,
@@ -61,18 +71,32 @@ const Analysis = () => {
         });
 
         // Calculate category totals
-        data.forEach(payment => {
-            categoryTotals[payment.category] += payment.amount;
-        });
+        if (data) {
+            data.forEach(payment => {
+                categoryTotals[payment.category] += payment.amount;
+            });
+        }
 
         return categoryTotals;
     };
 
     return (
-        <div>
-            <h2>Payments by Category</h2>
-            <canvas id="paymentChart" width="400" height="400"></canvas>
+        <>
+        <div className="analysis-navbar">
+            < NavBar/>
         </div>
+        <div className="analysis-main-section">
+
+            <div className="chart-container" style={{position: "absolute"}}>
+                <h2>Payments by Category</h2>
+                {loading ? (
+                    <p>Loading...</p>
+                    ) : (
+                        <canvas  ref={chartRef} width="900" height="900"></canvas>
+                        )}
+            </div>
+        </div>
+        </>
     );
 };
 
