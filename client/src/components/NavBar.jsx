@@ -40,6 +40,7 @@ const NavBar = ({isClicked, setIsClicked}) => {
                         <li style={{position: 'absolute', left: -673 + '%'}} onClick={() => {navigate('/send_money')}}>Send Money</li>
                         <li style={{position: 'absolute', left: -561 + '%'}} onClick={() => {navigate('/account_details')}}>Account Details</li>
                         <li style={{position: 'absolute', left: -425 + '%'}} onClick={() => {navigate('/transactions')}}>Transactions</li>
+                        <li style={{position: 'absolute', left: -312 + '%'}} onClick={() => {navigate('/analysis')}}>Analysis</li>
 
                     </ul>
                     {isDropDown && (
@@ -61,6 +62,7 @@ const NavBar = ({isClicked, setIsClicked}) => {
                         <li onClick={() => setIsClicked(true)}>Send Money</li>
                         <li onClick={() => setIsClicked(true)}>Account Details</li>
                         <li onClick={() => setIsClicked(true)}>Transactions</li>
+                        <li onClick={() => setIsClicked(true)}>Analysis</li>
                     </ul>
                     <ul>
                         <span></span>
