@@ -73,6 +73,21 @@
     
 }
 
+.send-money-main select:first-of-type
+{
+    position: relative;
+    top: 54%;
+    left: 4%;
+    width: 36%;
+    height: 6%;
+    background-color: white;
+    color: black;
+    font-weight: 200;
+    border: 2px black ridge;
+    border-radius: 5px;
+    text-align: center;
+}
+
 .send-money-main input::placeholder
 {
     text-align: center;
@@ -83,7 +98,7 @@
     width: 10%;
     height: 7%;
     top: 66%;
-    left: -2%;
+    left: -19.5%;
     background-color: white;
     color: black;
     border: 1.5px black ridge;

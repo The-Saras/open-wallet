@@ -12,6 +12,7 @@ const Send_Money = () => {
     const [pin, setPin] = useState("")
     const [haveVal,setHaveVal] = useState(false)
     const [btnClicked, setBtnClicked] = useState(false)
+    
     const ctg = [
         {value: "food", label: "Food"},
         {value: "travel", label: "Travel"},
@@ -32,15 +33,42 @@ const Send_Money = () => {
             })
             const data = await response.json();
             if(data){
-                alert("Amount Sent....");
+                if(data.message == 'Invalid pin'){
+                    alert(data.message);
+                }
+                else{
+
+                    alert("Amount Sent....");
+                }
+                // console.log(data)
             }
         } catch (error) {
             alert("Error: ",error);
         }
     }
 
-    const filedEmpty = (ph,msg) => {
-        if(ph != "" && msg != "" && amt != "")
+    const featchUserPin = async() => {
+        try{
+
+            const res = await fetch("http://localhost:3000/user/getuser",{
+                method: 'GET',
+                headers: {
+                    'auth-token': localStorage.getItem('jsonwebtoken')
+                }
+            })
+
+            const dataa = res.json()
+            const user_pin = dataa.pin
+            
+        }catch(e)
+        {
+            console.log(e);
+        }
+
+    }
+
+    const filedEmpty = (ph,amt,pin) => {
+        if(ph != "" && amt != "" && pin != "")
         {
             setHaveVal(true)
             setBtnClicked(false)
