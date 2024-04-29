@@ -1,5 +1,5 @@
 import './App.css'
-import Home from './components/home'
+import Home from './components/Home'
 import Transactions_Page from './components/Transcations'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import User_Login from './components/User_Login'

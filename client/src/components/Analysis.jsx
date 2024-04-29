@@ -7,6 +7,8 @@ const Analysis = () => {
     const [loading, setLoading] = useState(true);
     const chartRef = useRef(null);
 
+    
+
     const fetchTransactions = async () => {
         try {
             const response = await fetch('http://localhost:3000/account/transactions', {

@@ -12,6 +12,12 @@ const Send_Money = () => {
     const [pin, setPin] = useState("")
     const [haveVal,setHaveVal] = useState(false)
     const [btnClicked, setBtnClicked] = useState(false)
+    const ctg = [
+        {value: "food", label: "Food"},
+        {value: "travel", label: "Travel"},
+        {value: "clothes", label: "Clothes"},
+        {value: "medicines", label: "Medicines"},
+        {value: "others", label: "Others"}];
 
     const handleSubmit =async(e)=>{
         e.preventDefault();
@@ -66,7 +72,14 @@ const Send_Money = () => {
                 <input type="tel" name="phone_no" value={ph} placeholder="Recivers Phone No." onChange={(e) => {setPh(e.target.value)}}/>
                 <input type="number" name="amt" value={amt} placeholder="Amount" onChange={(e) => {setAmt(e.target.value)}}/>
                 <input type="password" name="pin" value={pin} placeholder="Enter Your Pin" onChange={(e) => {setPin(e.target.value)}}/>
-                <input type="text" name="msg"  value={msg} placeholder="Message If Any"  onChange={(e) => {setMsg(e.target.value)}}/>
+                <select value={""} onChange={(e) => {setMsg(e.target.value)}}>
+                    {ctg.map((group) => (
+                        <option key={group.value} value={group.value}>
+                            {group.label}
+                        </option>
+                    ))}
+                </select>
+               
                 <button className="send-money-btn" onClick={handleSubmit}>Send</button>
             </div>
 
