@@ -26,10 +26,11 @@ const Transcations_Page = ({bal}) => {
     
             const all_Transactions = data.map(d => ({
                 id: d._id,
-                name: d.sender.name,
+                name: d.receiver.name,
                 amount:d.amount,
                 receiver_id: d.receiver._id,
                 sender_id: d.sender._id,
+                date: d.date
             
             }))
             all_Transactions.forEach(d => {
@@ -89,7 +90,7 @@ const Transcations_Page = ({bal}) => {
                         console.log(localStorage.getItem('jsonwebtoken'))
                     return(
                             <span key={u.id}>
-                                <li>{u.sender_id}</li>
+                                <li>{u.date}</li>
                                 <li>{u.name}</li>
                                 <li style={{color: currentUserId == u.sender_id ? "red" : "#3FFF00"}}>{u.amount}</li>
                             </span> 

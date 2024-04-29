@@ -76,7 +76,7 @@ router.get("/transactions", authenticateJwt, async (req, res) => {
             { sender: req.id },
             { receiver: req.id }
         ]
-    }).populate('sender receiver', 'name email').sort({ createdAt: -1 });
+    }).populate('sender receiver date', 'name email').sort({ createdAt: -1 });
 
     res.json(transactions);
 });
