@@ -8,30 +8,68 @@ import { useEffect } from "react";
 const Transcations_Page = ({bal}) => {
 
     
-    const [temp,setTemp] = useState([]);
-    const [color,setColor] = useState('');
-    // useEffect(() => {
-    //     fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json()).then(json => setTemp(json))
-        
-    // },[])
-    console.log(temp);
+    const [user,setUser] = useState([]);
+    const [color,setColor] = useState("");
+    const [currentUserId, setCurrentUserId] = useState("")
+    
+    const fetchUser = async () => {
+        try{
 
-    const trans_checker = (Deposit) => {
-        if(Deposit != ""){
-            setColor('#3FFF00');
+            const ressponse = await fetch('http://localhost:3000/account/transactions',{
+                method: 'GET',
+                headers:{
+                    "auth-token":localStorage.getItem('jsonwebtoken')
+                }  
+            })
+            const data = await ressponse.json();
+            console.log(data);
+    
+            const all_Transactions = data.map(d => ({
+                id: d._id,
+                name: d.sender.name,
+                amount:d.amount,
+                receiver_id: d.receiver._id,
+                sender_id: d.sender._id,
+            
+            }))
+            all_Transactions.forEach(d => {
+                console.log(d.id)
+
+            })
+            setUser(all_Transactions)
+                
+        }catch(e)
+        {
+            console.log(e);
         }
-        else{
-            setColor('red');
+
+    }
+    useEffect(() => {
+        fetchUser();
+        featchUserId();
+    },[])
+
+
+    const featchUserId = async() => {
+        try{
+
+            const res = await fetch("http://localhost:3000/user/getUser",{
+                method: 'GET',
+                headers: {
+                    "auth-token": localStorage.getItem('jsonwebtoken')
+                }
+            })
+            const dataa = await res.json()
+            setCurrentUserId(dataa._id)
+        }catch(e)
+        {
+            console.log(e)
         }
+
     }
 
-    // useEffect(() => {
-    //     temp.forEach(trans => {
-    //         trans_checker(trans.phone)
-    //     })
 
-    // },[temp])
-
+   
     return(
         <>
             <div className="trans-navbar">
@@ -47,36 +85,18 @@ const Transcations_Page = ({bal}) => {
                     <li>Amount</li>
                 </ul>
                 <ul>
-                    {/* {temp.map(trans => {
+                    {user.map(u => {
+                        console.log(localStorage.getItem('jsonwebtoken'))
                     return(
-                            <span key={trans.id}>
-                                <li>{trans.name}</li>
-                                <li>{trans.email}</li>
-                                <li style={{color: color}}>{trans.id}</li>
-                                <li style={{color: color}}>{trans.phone}</li>
-                                <li>{trans.username}</li>
+                            <span key={u.id}>
+                                <li>{u.sender_id}</li>
+                                <li>{u.name}</li>
+                                <li style={{color: currentUserId == u.sender_id ? "red" : "#3FFF00"}}>{u.amount}</li>
                             </span> 
 
                         )
-                    })} */}
-                    <span>
-
-                    <li>28/4/24</li>
-                    <li>Tom</li>
-                    <li style={{color : "#3FFF00" }}>100$</li>
-                    </span>
-                    <span>
-
-                    <li>27/4/24</li>
-                    <li>Jack</li>
-                    <li style={{color : "red" }}>10$</li>
-                    </span>
-                    <span>
-
-                    <li>2/4/24</li>
-                    <li>Bill</li>
-                    <li style={{color : "#3FFF00" }}>1000$</li>
-                    </span>
+                    })}
+                    
                 </ul>
             </div>
         </>

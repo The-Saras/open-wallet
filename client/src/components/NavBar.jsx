@@ -35,9 +35,11 @@ const NavBar = ({isSigndUp, setIsSignedUp}) => {
                     <h2 className="navbar-title">UPI CLONE</h2>
                     <ul style={{position: 'absolute', left: 90 + '%', width: 5 + '%', height: 30 + '%'}} onMouseLeave={() => {setIsDropDown(false)}}>
                         <li className="navbar-username" style={{position: 'relative', left: -15 + '%'}}  onMouseEnter={() => {setIsDropDown(true)}} >{user}</li>
-                        {/* <li style={{position: 'relative', left: -400 + '%'}} onClick={() => {navigate('/')}}>Home</li>
-                        <li onClick={() => {navigate('/send_money')}}>Send Money</li>
-                        <li onClick={() => {navigate('/account_details')}}>Account Details</li> */}
+                        <li style={{position: 'absolute', left: -770 + '%', width: 100 + "%"}} onClick={() => {navigate('/')}}>Home</li>
+                        <li style={{position: 'absolute', left: -673 + '%'}} onClick={() => {navigate('/send_money')}}>Send Money</li>
+                        <li style={{position: 'absolute', left: -561 + '%'}} onClick={() => {navigate('/account_details')}}>Account Details</li>
+                        <li style={{position: 'absolute', left: -425 + '%'}} onClick={() => {navigate('/transactions')}}>Transactions</li>
+
                     </ul>
                     {isDropDown && (
                             <div className="dropdown-content" onMouseEnter={() => {setIsDropDown(true)}} onMouseLeave={() => {setIsDropDown(false)}}>
@@ -55,6 +57,7 @@ const NavBar = ({isSigndUp, setIsSignedUp}) => {
                         <li onClick={() => {navigate('/')}}>Home</li>
                         <li onClick={() => {navigate('/send_money')}}>Send Money</li>
                         <li onClick={() => {navigate('/account_details')}}>Account Details</li>
+                        <li onClick={() => {navigate('/transactions')}}>Transactions</li>
                     </ul>
                     <ul>
                         <span></span>
