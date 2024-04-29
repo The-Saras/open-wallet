@@ -20,6 +20,10 @@ const transactionSchema = new mongoose.Schema({
         type: String,
         default: formatDate
         
+    },
+    category:{
+        type:String,
+        default:"Other"
     }
 });
 

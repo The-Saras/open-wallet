@@ -22,7 +22,7 @@ const Send_Money = () => {
                     "Content-Type": "application/json",
                     "auth-token":localStorage.getItem('jsonwebtoken')
                 },
-                body:JSON.stringify({amount:amt,to:ph,pin:pin})
+                body:JSON.stringify({amount:amt,to:ph,pin:pin, category:msg})
             })
             const data = await response.json();
             if(data){

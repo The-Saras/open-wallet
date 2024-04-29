@@ -8,6 +8,7 @@ import Account_Details from './components/Account_Details'
 import Send_Money from './components/Send_Money'
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Analysis from './components/Analysis'
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Route path={'/user_signup'} element={<User_Signup/>}/>
         <Route path={'/account_details'} element={<Account_Details bal={balance} />}/>
         <Route path={'/send_money'} element={<Send_Money />}/>
+        <Route path={'/analysis'} element={<Analysis />} />
 
       </Routes>
     </Router>
