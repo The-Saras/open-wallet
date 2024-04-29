@@ -41,7 +41,7 @@ function App() {
         <Route path={'/transactions'} element={<Transactions_Page bal={balance}/>}/>
         <Route path={'/user_login'} element={<User_Login/>}/>
         <Route path={'/user_signup'} element={<User_Signup/>}/>
-        <Route path={'/account_details'} element={<Account_Details bal={balance} />}/>
+        <Route path={'/account_details'} element={<Account_Details />}/>
         <Route path={'/send_money'} element={<Send_Money />}/>
 
       </Routes>
