@@ -20,7 +20,7 @@ router.post("/transfer", authenticateJwt, async (req, res) => {
     const session = await mongoose.startSession();
 
     session.startTransaction();
-    const { amount, to,pin } = req.body;
+    const { amount, to,pin,category } = req.body;
     
 
     // Fetch the accounts within the transaction
@@ -55,7 +55,8 @@ router.post("/transfer", authenticateJwt, async (req, res) => {
         const transaction = new Transaction({
             sender:req.id,
             receiver:useridpay,
-            amount:amount
+            amount:amount,
+            category:category
         });
         await transaction.save();
         res.json({
@@ -76,7 +77,7 @@ router.get("/transactions", authenticateJwt, async (req, res) => {
             { sender: req.id },
             { receiver: req.id }
         ]
-    }).populate('sender receiver date', 'name email').sort({ createdAt: -1 });
+    }).populate('sender receiver date  category', 'name email').sort({ createdAt: -1 });
 
     res.json(transactions);
 });
