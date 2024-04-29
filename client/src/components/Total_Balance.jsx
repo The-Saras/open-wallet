@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import "../css files/total_balance.css"
+import { useEffect } from "react";
 const Total_Balance = ({bal}) => {
     
+useEffect(() => {},[bal])
     // const [totalBal,setTotalBal] = useState("");
     return(
         <>
